@@ -1,0 +1,33 @@
+.notification-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .notification-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .notification-item :hover{
+
+    cursor: pointer;
+    background-color: bisque;
+  }
+  
+  .notification-icon {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  
+  .notification-title {
+    font-weight: bold;
+  }
+  
+  .notification-message {
+    color: #666;
+  }
+  

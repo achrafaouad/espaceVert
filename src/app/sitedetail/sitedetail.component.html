@@ -1,0 +1,203 @@
+<!-- <h1>Fiche datail</h1> -->
+
+
+<div class="card">
+  <div class="header-container">
+    <div class="header-content">
+      <h1>Détail du Site</h1>
+      <p>Toutes les informations lié à un site</p>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="container text-right">
+
+
+<div class="row">
+  <div class="col-xl-7">
+    <!-- <table id="customers" > -->
+    <table id="customers" *ngIf="dataIsHere">
+    <tr>
+      <th colspan="4" style="text-align: center;background-color:#27374D"> Informations </th>
+   
+    
+    </tr>
+   
+    <tr>
+      <td><b>Désignation: </b></td>
+      <td font-style="italic">{{site.designation}}</td>
+      <td><b>Entreprise:</b></td>
+      <td font-style="italic">{{site.entreprise}}</td>
+    </tr>
+    
+    <tr>
+      <td><b> Surface (en mètre):</b></td>
+      <td font-style="italic">{{site.surface}}</td>
+      <td><b>Date d’aménagement des espaces:</b></td>
+      <td font-style="italic">{{site.dateAmenagement | date:"dd/MM/YY"}}</td>
+    </tr>
+   
+    <tr>
+      <td colspan="4" style="text-align: center;font-weight:bolder;font-size:13px;background-color:rgba(0, 128, 0, 0.251)">
+        Palette végétale
+      </td>
+      
+      
+    </tr>
+  
+    <tr>
+      <td><b>Gazon:</b></td>
+      <td font-style="italic">
+        <ul style="padding:0px">
+          <li *ngFor="let ele of site.gazon"><b>{{ele.surface}} m2 </b>de{{ele.intitule}} .</li>
+        </ul>
+        </td>
+      <td><b>Palmiers:</b></td>
+      <td font-style="italic">
+        <ul style="padding:0px">
+          <li *ngFor="let ele of site.palmiers"><b>{{ele.qtt}} unité</b> de {{ele.intitule}}.</li>
+        </ul>
+       </td>
+    </tr>
+ 
+    <tr>
+      <td><b>Arbres:</b></td>
+      <td font-style="italic">
+        <ul style="padding:0px">
+          <li *ngFor="let ele of site.arbres"><b>{{ele.qtt}} unité</b> de {{ele.intitule}}.</li>
+        </ul>
+       </td>
+      <td><b>Arbustes:</b></td>
+      <td font-style="italic">
+        <ul style="padding:0px">
+          <li *ngFor="let ele of site.arbustes"><b>{{ele.surface}} m2 </b>de{{ele.intitule}} .</li>
+        </ul>
+        </td>
+    </tr>
+    
+   
+    
+    
+    </table>
+    
+    <div class="d-flex justify-content-center" style="padding: 10px 0px;">
+      <button class="btn btn-primary" type="button" (click)="Editer()" >Editer</button>
+      <button class="btn btn-danger" type="button" (click)="ask()" >Supprimer</button>
+
+    </div>
+
+    <!-- <div class="container mt-10" *ngIf="!selectedMarche"> -->
+    <div class="container mt-10" *ngIf="!dataIsHere">
+      <div class="card skeleton">
+        <div class="card-body skeleton">
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="col-xl-5">
+    <div class="card cardmiddle">
+      <div id="mapWrap" style="width: 100%; height: 40.5vh">
+
+        <div id="mapPrev1" class="mapPrev1" style="width: 100%; height: 40.5vh">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+</div>
+
+<div class="row">
+
+  <div class="col-xl-6">
+
+    <table id="customers" *ngIf="dataIsHere">
+      <tr>
+        <th colspan="8" style="text-align: center;background-color:#27374dba"> Fuites </th>
+        <tr style="background-color:#27374d4e">
+          <td>id</td>
+          <td>latitude</td>
+          <td>longitude</td>
+          <td>date constat</td>
+          <td>date réparation</td>
+          <td>statut</td>
+          <td>type de fuite</td>
+          <td>type de réseau</td>
+        </tr>
+        <tr *ngFor="let ele of site.fuites"
+        >
+        <td>{{ele.id}}</td>
+        <td>{{ele.latitude}}</td>
+        <td>{{ele.longitude}}</td>
+        <td>{{ele.date_constat | date:'yyyy-MM-dd' }}</td>
+        
+        <td>{{ele.date_reparation | date:'yyyy-MM-dd'}}</td>
+        <td>{{ele.statut        }}</td>
+        <td>{{ele.type_fuite        }}</td>
+        <td>{{ele.type_reseau        }}</td>
+      
+      </tr>
+      
+     
+  </table>
+
+  </div>
+  <div class="col-xl-6">
+
+    <table id="customers" *ngIf="dataIsHere">
+      <table id="customers" *ngIf="dataIsHere">
+        <tr>
+          <th colspan="3" style="text-align: center;background-color:#27374dba"> Sites </th>
+          <tr style="background-color:#27374d4e">
+            <td>id</td>
+            <td>Name</td>
+            <td>Description</td>
+           
+          </tr>
+          <tr *ngFor="let ele of site.sites"
+          >
+          <td>{{ele.id}}</td>
+          <td>{{ele.name}}</td>
+          <td>{{ele.description}}</td>
+          
+        
+        </tr>
+        
+       
+    </table>
+  </table>
+  </div>
+</div>
+
+      </div>
+      </div>
+</div>
+
+<div #buttonContainer></div>
+
+
+<div class="modal fade" id="askuser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+aria-labelledby="staticBackdropLabel" aria-hidden="false">
+<div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex justify-content-center">
+            <img src="{{image}}/assets/attention.png" width="45px">
+            <h4>Un des Espaces sera suprimé , Etes vous sur? </h4>
+          </div>
+          <div class="d-flex justify-content-center">
+
+            <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal" >Non</button>
+            <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" (click)="suprimer()">Oui</button>
+         
+
+          </div>
+            
+    </div>
+</div>
+</div>
+</div>

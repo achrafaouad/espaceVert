@@ -1,0 +1,16 @@
+
+<div class="card">
+    <div class="card-body">
+        <div class="notification-list">
+            <div *ngFor="let notification of notifications" class="notification-item">
+              <div class="notification-icon">{{ notification.icon }}</div>
+              <div class="notification-content">
+                <div class="notification-title">{{ notification.title }}</div>
+                <div class="notification-message">{{ notification.message }}</div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+
+  

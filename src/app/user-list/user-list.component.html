@@ -1,0 +1,334 @@
+
+<div class="d-flex flex-row-reverse"  style="margin-top:-20px;">
+       <button  class="btn btn-primary" style="background-color: bleu;" data-bs-toggle="modal" data-bs-target="#adduserModal" aria-label="Example icon button with a bookmark icon">Ajouter un utilisateur</button>
+    </div>
+<div class="card" >
+    <div class="card-body">
+       
+        <div class="container">
+           
+
+                <div class="cards">
+                <div class="cards__item" *ngFor="let user of users" (click)="navigateToAccount(user.id)">
+                    <div class="card user-card card12">
+                        <div class="card-header">
+                            <h5>Profile</h5>
+                        </div>
+                        <div class="card-block">
+                            <div class="user-image">
+                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" class="img-radius" alt="User-Profile-Image">
+                            </div>
+                            <h6 class="f-w-600 m-t-25 m-b-10">{{user.firstName}}  {{user.lastName}}  </h6>
+                            <p class="text-muted">{{user.cin}} | {{user.sex}} | code : {{user.userCodeNumber}}</p>
+                            <hr>
+                            <p class="text-muted m-t-15">Role: {{user.roles[0].name}}</p>
+                            <p class="text-muted m-t-15">connected: {{user.lastConnect }}</p>
+                            <ul class="list-unstyled activity-leval">
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                
+                            </ul>
+                          
+                            
+                        </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+                
+                
+                
+       
+  
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="adduserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" color="green">Add user</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+            
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="user-image   d-flex justify-content-center" >
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" width="100px" height="auto" class="img-radius" alt="User-Profile-Image">
+            </div>
+
+  
+              <form (ngSubmit)="onSubmitEdit(formula1)" #formula1="ngForm">
+
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">firstName/lastName</h6>
+                      </div>
+                    <div class="col-sm-5 text-secondary">
+                      <input type="text" class="form-control" placeholder="firstName" ngModel name="firstName"  firstName >
+                    </div>
+                    <div class="col-sm-4 text-secondary">
+                        <input type="text" class="form-control" placeholder="lastName"  ngModel name="lastName"  lastName >
+                      </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">cin</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control" placeholder="cin"  ngModel name="cin"  cin >
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">userCodeNumber</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control" placeholder="userCodeNumber" ngModel name="userCodeNumber"  userCodeNumber >
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control"  placeholder="userPhone"   ngModel name="userPhone"  userPhone >
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control" placeholder="email" ngModel name="email"  email  > 
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">sex</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control"  placeholder="sex" ngModel name="sex"  sex >
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">username/password</h6>
+                    </div>
+                    <div class="col-sm-5 text-secondary">
+                      <input type="text" class="form-control" placeholder="username"  ngModel name="username"  username required>
+                    </div>
+                    <div class="col-sm-4 text-secondary">
+                      <input type="text" class="form-control" placeholder="password"  ngModel name="password"  password  required>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">birthday</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="date" class="form-control"  ngModel name="birthday"  birthday >
+                    </div>
+                  </div>
+                  <!-- <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Profil</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Profil</mat-label>
+                      <mat-select
+                        [(value)]="selectedProfil"
+                        (selectionChange)="onchangeP($event.value)"
+                      >
+                        <mat-option
+                          *ngFor="let the of profiles"
+                          value="{{ the.id }}"
+                          >{{ the.name }}</mat-option
+                        >
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  </div> -->
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Role</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Role</mat-label>
+                      <mat-select
+                        [(value)]="role"
+                        (selectionChange)="onchangeR($event.value)"
+                      >
+                        <mat-option value="admin">admin</mat-option>
+                        <mat-option value="simple_user">agent</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  </div>
+                  
+            
+              <div class="modal-footer">
+            <div class="form-group" >
+              <button type="button" class="btn btn-secondary" id="cllose" data-dismiss="modal">Close</button>
+              <button [disabled]="!formula1.valid" type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+
+        </form>
+  
+      
+    </div>
+  
+  
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <div class="modal fade" id="adduserModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header card12">
+          <h5 class="modal-title" id="exampleModalLabel" color="green">Ajouter un utilisateur</h5>
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="user-image   d-flex justify-content-center" >
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" width="100px" height="auto" class="img-radius" alt="User-Profile-Image">
+            </div>
+
+  
+              <form (ngSubmit)="onSubmitEdit(formula1)" #formula1="ngForm">
+
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">firstName/lastName</h6>
+                      </div>
+                    <div class="col-sm-5 text-secondary">
+                      <input type="text" class="form-control" placeholder="firstName" ngModel name="firstName"  firstName required>
+                    </div>
+                    <div class="col-sm-4 text-secondary">
+                        <input type="text" class="form-control" placeholder="lastName"  ngModel name="lastName"  lastName required>
+                      </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">cin</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control" placeholder="cin"  ngModel name="cin"  cin >
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">userCodeNumber</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control" placeholder="userCodeNumber" ngModel name="userCodeNumber"  userCodeNumber >
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control"  placeholder="userPhone"   ngModel name="userPhone"  userPhone >
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control" placeholder="email" ngModel name="email"  email  > 
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">sex</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="text" class="form-control"  placeholder="sex" ngModel name="sex"  sex >
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">username/password</h6>
+                    </div>
+                    <div class="col-sm-5 text-secondary">
+                      <input type="text" class="form-control" placeholder="username"  ngModel name="username"  username required>
+                    </div>
+                    <div class="col-sm-4 text-secondary">
+                      <input type="text" class="form-control" placeholder="password"  ngModel name="password"  password  required>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">birthday</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <input type="date" class="form-control"  ngModel name="birthday"  birthday >
+                    </div>
+                  </div>
+                  
+                  <div class="row mb-3">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Role</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Role</mat-label>
+                      <mat-select
+                        [(value)]="role"
+                        (selectionChange)="onchangeR($event.value)"
+                      >
+                        <mat-option value="admin">admin</mat-option>
+                        <mat-option value="simple_user">agent</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  </div>
+                  
+            
+              <div class="modal-footer">
+            <div class="form-group" >
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button [disabled]="!formula1.valid" type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+
+        </form>
+  
+      
+    </div>
+  
+  
+      </div>
+    </div>
+  </div>

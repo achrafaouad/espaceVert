@@ -1,0 +1,26 @@
+.group{
+
+
+
+
+  display: flex;
+
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: space-around;
+
+
+}.item {
+  margin:4px;
+  display:flex;
+}.card1{
+  border: 1px solid #222;
+  min-width: 320px;
+  height: max-content
+}.mystyle{
+  background-color: orange;
+  border-radius: 30px;
+  color:red
+  }

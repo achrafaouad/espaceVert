@@ -1,0 +1,24 @@
+<div class="card card1" [style.background-color]="color">
+  <div class="card-body">
+    <p class="card-title"><span></span>{{title}}</p>
+    <div class="row">
+      <div class="col-sm-9">
+        <p class="card-subtitle mb-2 text-muted my">{{sub}}</p>
+      </div>
+      <div class="col-sm-3">
+        <p class="card-subtitle mb-2 text-muted my">Ecart</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <img [src]="icon" width="50px" height="auto">
+      </div>
+      <div class="col-sm-5">
+        <p class="card-text" style="color: black; padding-top: 10px"><span style="color: grey">{{val}}</span>/<span style="color: red">{{perc}}%</span></p>
+      </div>
+      <div class="col-sm-3 mystyle">
+        <p style="padding-top: 15px; font-size: 14px;font-weight: 900; text-align: center">{{ecart}}%</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,106 @@
+<div class="container">
+ 
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <div class="card card12">
+          <div class="card-body">
+            <div class="d-flex flex-column align-items-center text-center">
+              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+              <div class="mt-3">
+                <h4>{{user.firstName}}  {{user.lastName}} </h4>
+                <hr>
+                <p class="text-secondary mb-1">Role: {{user.roles[0].name}}</p>
+                <p class="text-muted font-size-sm">{{user.userCodeNumber}}</p>
+                <p class="text-muted font-size-sm">connected: {{user.lastConnect }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+      </div>
+      
+      
+      <div class="col-lg-8">
+        <div class="card card12">
+          <div class="card-body">
+            <form (ngSubmit)="onSubmit(f)" #f="ngForm" > 
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <p class="mb-0">firstName</p>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input type="text" class="form-control" ngModel name="firstName"  firstName [(ngModel)]='user.firstName'>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <p class="mb-0">lastName</p>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input type="text" class="form-control"  ngModel name="lastName"  lastName [(ngModel)]='user.lastName'>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <p class="mb-0">cin</p>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input type="text" class="form-control"  ngModel name="cin"  cin [(ngModel)]='user.cin'>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <p class="mb-0">userCodeNumber</p>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input type="text" class="form-control"  ngModel name="userCodeNumber"  userCodeNumber [(ngModel)]='user.userCodeNumber'>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <p class="mb-0">Phone</p>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input type="text" class="form-control"  ngModel name="userPhone"  userPhone [(ngModel)]='user.userPhone'>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input type="text" class="form-control" ngModel name="email"  email [(ngModel)]='user.email' > 
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <p class="mb-0">sex</p>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input type="text" class="form-control"  ngModel name="sex"  sex [(ngModel)]='user.sex'>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-sm-3">
+                <p class="mb-0">birthday</p>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <input type="date" class="form-control"  ngModel name="birthday"  birthday [(ngModel)]='user.birthday'>
+              </div>
+            </div>
+         
+            <div class="row">
+              <div class="col-sm-3"></div>
+              <div class="col-sm-9 text-secondary">
+                <input type="submit" class="btn btn-primary px-4" value="Save Changes">
+              </div>
+            </div>
+          </form>
+          </div>
+        </div>
+       
+                </div>
+              </div>
+            </div>
+          
+            <ngx-spinner type="ball-scale-multiple"></ngx-spinner>

@@ -1,0 +1,30 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+
+<div class="row justify-content-center align-items-center wwq" style="height: 100vh;">
+
+                    <div class="col-sm-4 des">
+                        <div class="p-5">
+                            <div class="mb-5">
+                                <h3 style="color: white;font-size:32px">  Authentification </h3>
+                            </div>
+                            <h6 class="h5 mb-0" style="font-family: 'Kanit', sans-serif;text-align:center;background-color:rgba(0, 0, 0, 0.137);color:white">Remplir le formulaire de connexion</h6>
+                            <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                                    <input ngModel id="username" type="text" class="form-control" placeholder="username" name="username" required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-shield-lock"></i></span>
+                                    <input ngModel id="password" type="password" class="form-control" placeholder="password" name="password" required>
+                                </div>
+
+                                <br>
+                                <button [disabled]="!f.valid" type="submit" class="btn btn-primary px-4" style="background-color: RGB(34, 139, 230); width: 100%;">Login</button>
+
+                            </form>
+                        </div>
+                    </div>
+
+                
+</div>

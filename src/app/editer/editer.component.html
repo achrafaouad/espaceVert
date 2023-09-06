@@ -1,0 +1,369 @@
+
+
+<div class="card">
+  <div class="card-body">
+      <div class="d-flex flex-column align-items-center text-center">
+          <img src="{{image}}/assets/espace_paysage_01820600_162810708.jpeg" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+          <div class="mt-3">
+              <p class="text-secondary mb-1">Editer l'espace vert </p>
+             
+          </div>
+      </div>
+
+
+      <!-- <form #espacevertForm="ngForm" (ngSubmit)="onSubmit(espacevertForm)">
+          <div class="form-group">
+            <label for="name">Nom:</label>
+            <input class="form-control" type="text" id="name" name="name" ngModel required>
+            <div *ngIf="espacevertForm.controls['name'].invalid && (espacevertForm.controls['name'].dirty || espacevertForm.controls['name'].touched)" class="text-danger">
+              Le nom est requis.
+            </div>
+          </div>
+        
+          <div class="form-group">
+            <label for="surface">Surface (en mètre):</label>
+            <input class="form-control" type="number" id="surface" name="surface" ngModel required pattern="[0-9]+">
+            <div *ngIf="espacevertForm.controls['surface'].invalid && (espacevertForm.controls['surface'].dirty || espacevertForm.controls['surface'].touched)" class="text-danger">
+              La surface doit être un nombre positif.              </div>
+          </div>
+        
+  
+        
+          <div class="d-flex flex-column align-items-center text-center">
+            <br>
+            <button class="btn btn-primary" type="submit" [disabled]="espacevertForm.invalid">Créer</button>
+          </div>
+        </form> -->
+
+        <form #espacevertForm="ngForm"  style="background-color: #7ebd2775;padding:20px;border-radius:10px">
+          <!-- Existing form fields -->
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="name">Nom de Site:</label>
+                <input class="form-control" type="text" id="name" name="name" ngModel required [(ngModel)]="site.designation">
+                <div *ngIf="espacevertForm.controls['name'].invalid && (espacevertForm.controls['name'].dirty || espacevertForm.controls['name'].touched)" class="text-danger">
+                  Le nom est requis.
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="dateAmenagement">Date d’aménagement des espaces:</label>
+                <input class="form-control" type="date" id="dateAmenagement" name="dateAmenagement" ngModel required [(ngModel)]="site.dateAmenagement">
+                <div *ngIf="espacevertForm.controls['dateAmenagement'].invalid && (espacevertForm.controls['dateAmenagement'].dirty || espacevertForm.controls['dateAmenagement'].touched)" class="text-danger">
+                  La date d'aménagement est requise.
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                <label for="entreprise">Entreprise opérante à l’entretien:</label>
+                <input class="form-control" type="text" id="entreprise" name="entreprise" ngModel required [(ngModel)]="site.entreprise">
+                <div *ngIf="espacevertForm.controls['entreprise'].invalid && (espacevertForm.controls['entreprise'].dirty || espacevertForm.controls['entreprise'].touched)" class="text-danger">
+                  L'entreprise est requise.
+                </div>
+              </div>
+            
+            </div>
+           
+          </div>
+         
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="surface">Surface (en mètre):</label>
+                <input class="form-control" type="number" id="surface" name="surface" ngModel required pattern="[0-9]+" [(ngModel)]="site.surface">
+                <div *ngIf="espacevertForm.controls['surface'].invalid && (espacevertForm.controls['surface'].dirty || espacevertForm.controls['surface'].touched)" class="text-danger">
+                  La surface doit être un nombre positif.              </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="reseauArrosage">Nature de réseau d’arrosage:</label>
+                <select class="form-select" type="text" id="reseauArrosage" name="reseauArrosage" ngModel required [(ngModel)]="site.reseauArrosage">
+                  <option value="Goutte à goutte">Goutte à goutte</option>
+                  <option value="clapets Vannes">clapets Vannes</option>
+                  <option value="asperseurs">asperseurs</option>
+                  </select>
+                <div *ngIf="espacevertForm.controls['reseauArrosage'].invalid && (espacevertForm.controls['reseauArrosage'].dirty || espacevertForm.controls['reseauArrosage'].touched)" class="text-danger">
+                  La nature du réseau d’arrosage est requise.
+                </div>
+              </div>
+            </div>
+           </div>
+          <br>
+        
+          <fieldset class="custom-fieldset1">
+         
+
+            <legend>Gazon:</legend>
+            <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="gazon">Gazon:</label>
+              <select class="form-select" type="text" id="gazon" name="gazon" [(ngModel)] = "objGazon.intitule">
+                <option *ngFor="let ele of gazonList" [value]="ele">{{ele}}</option>
+
+              </select>
+              
+           
+            </div>
+          </div>
+
+          <div class="col-sm-5">
+            <label for="arbres">Surface:</label>
+            <input class="form-control" type="number" id="test" name="test"  [(ngModel)] = "objGazon.surface" >
+
+          </div>
+          <div class="col-sm-1">
+            <button class="btn btn-primary" (click)="addToGazon()" style="margin-top:20px;"><i class="bi bi-plus-circle-dotted"></i></button>
+          </div>
+
+          <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                      <th>#</th>
+                        <th>intitulé</th>
+                        <th>Surface</th>
+                        <th>Action</th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let ele of site.gazon;let i = index">
+                      <td>1</td>
+                        <td class="table-img">{{ele.intitule}}
+                        </td>
+                        <td>
+                            <h6 class="mb-0 font-13"></h6>
+                            <p class="m-0 font-12">
+                                <span class="col-green font-weight-bold"> {{ele.surface}}</span>
+                            </p>
+                        </td>
+
+                        <td>
+                          <button class="btn" (click)="deleteGazon(i)"><i class="bi bi-trash"></i></button>
+                      </td>
+                       
+                    </tr>
+                  
+                  
+                </tbody>
+            </table>
+  
+    </div>
+    </div>
+    </fieldset>
+    <br>
+    <hr>
+
+    <fieldset class="custom-fieldset1">
+         
+
+      <legend>Palmiers</legend>
+
+        <div class="row">
+          <div class="col-sm-6"> <div class="form-group">
+            <label for="palmiers">Palmiers:</label>
+            <select class="form-select" type="text" id="palmiers" name="palmiers" ngModel [(ngModel)]="objPalmiers.intitule">
+              <option *ngFor="let ele of palmiersList" [value]="ele">{{ele}}</option>
+
+            </select>
+         
+          </div></div>
+
+          <div class="col-sm-5">
+            <label for="arbres">Nombre:</label>
+            <input class="form-control" type="number" id="test" name="test"  [(ngModel)]="objPalmiers.qtt">
+
+          </div>
+          <div class="col-sm-1">
+            <button class="btn btn-primary" (click)="addToPalmiers()" style="margin-top:20px;"><i class="bi bi-plus-circle-dotted"></i></button>
+          </div>
+
+          <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                      <th>#</th>
+                        <th>intitulé</th>
+                        <th>Nombre</th>
+                        <th>Action</th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let ele of site.palmiers;let i = index">
+                      <td>1</td>
+                        <td class="table-img">{{ele.intitule}}
+                        </td>
+                        <td>
+                            <h6 class="mb-0 font-13"></h6>
+                            <p class="m-0 font-12">
+                                <span class="col-green font-weight-bold"> {{ele.qtt}}</span>
+                            </p>
+                        </td>
+
+                        <td>
+                          <button class="btn" (click)="deletePalmiers(i)"><i class="bi bi-trash"></i></button>
+                      </td>
+                       
+                    </tr>
+                  
+                  
+                </tbody>
+            </table>
+  
+    </div>
+        </div>
+         </fieldset>
+          <!-- Add more form fields for Palette végétale, Gazon, Palmiers, Arbres, Arbustes, and Nature de réseau d’arrosage -->
+          <br>
+          <hr>
+          <fieldset class="custom-fieldset1">
+         
+
+            <legend>Arbres :</legend>
+          <div class="row">
+            <div class="col-sm-6"><div class="form-group">
+              <label for="arbres">Arbres:</label>
+              <select  class="form-select" type="text" id="arbres" name="arbres" ngModel  [(ngModel)]="objArbre.intitule">
+                <option *ngFor="let ele of arbresList" [value]="ele">{{ele}}</option>
+              </select>
+             
+            </div></div>
+            <div class="col-sm-5">
+              <label for="arbres">Nombre:</label>
+              <input class="form-control" type="number" id="nbr" name="nbr" [(ngModel)]="objArbre.qtt">
+
+            </div>
+            <div class="col-sm-1">
+              <button class="btn btn-primary" (click)="addToArbre()" style="margin-top:20px;"><i class="bi bi-plus-circle-dotted"></i></button>
+            </div>
+
+            <div class="col-sm-12">
+              <table class="table table-striped">
+                  <thead>
+                      <tr>
+                        <th>#</th>
+                          <th>intitulé</th>
+                          <th>Nombre</th>
+                          <th>Action</th>
+                        
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let ele of site.arbres;let i = index">
+                        <td>1</td>
+                          <td class="table-img">{{ele.intitule}}
+                          </td>
+                          <td>
+                              <h6 class="mb-0 font-13"></h6>
+                              <p class="m-0 font-12">
+                                  <span class="col-green font-weight-bold"> {{ele.qtt}}</span>
+                              </p>
+                          </td>
+
+                          <td>
+                            <button class="btn" (click)="deleteArbre(i)"><i class="bi bi-trash"></i></button>
+                        </td>
+                         
+                      </tr>
+                    
+                    
+                  </tbody>
+              </table>
+    
+      </div>
+
+          </div>
+          </fieldset>
+<br>
+<hr>
+          <fieldset class="custom-fieldset1">
+         
+
+            <legend>Arbustes</legend>
+        <div class="row">
+          
+          
+          <div class="col-sm-6"><div class="form-group">
+            <label for="arbustes">Arbustes:</label>
+            <select class="form-select" type="text" id="arbustes" name="arbustes" ngModel required [(ngModel)]="objArbustes.intitule">
+              <option *ngFor="let ele of arbustesList" [value]="ele">{{ele}}</option>
+
+            </select>
+            <div *ngIf="espacevertForm.controls['arbustes'].invalid && (espacevertForm.controls['arbustes'].dirty || espacevertForm.controls['arbustes'].touched)" class="text-danger">
+              Les arbustes sont requis.
+            </div>
+          </div></div>
+
+          <div class="col-sm-5">
+            <label for="arbres">Surface:</label>
+            <input class="form-control" type="number" id="nbr" name="nbr" [(ngModel)]="objArbustes.surface" >
+
+          </div>
+          <div class="col-sm-1">
+            <button class="btn btn-primary" (click)="addToArbustes()" style="margin-top:20px;"><i class="bi bi-plus-circle-dotted"></i></button>
+          </div>
+
+          <div class="col-sm-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                      <th>#</th>
+                        <th>intitulé</th>
+                        <th>Surface</th>
+                        <th>Action</th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let ele of site.arbustes;let i = index">
+                      <td>1</td>
+                        <td class="table-img">{{ele.intitule}}
+                        </td>
+                        <td>
+                            <h6 class="mb-0 font-13"></h6>
+                            <p class="m-0 font-12">
+                                <span class="col-green font-weight-bold"> {{ele.surface}}</span>
+                            </p>
+                        </td>
+
+                        <td>
+                          <button class="btn" (click)="deleteArbustes(i)"><i class="bi bi-trash"></i></button>
+                      </td>
+                       
+                    </tr>
+                  
+                  
+                </tbody>
+            </table>
+  
+    </div>
+        </div>
+        </fieldset>
+        
+        
+        
+        
+          
+        
+          
+        
+         
+        
+          <!-- Rest of your form -->
+        
+          <div class="d-flex flex-column align-items-center text-center">
+            <br>
+            <button class="btn btn-primary" type="submit" (click)="onSubmit(espacevertForm)" >Sauvgarder</button>
+          </div>
+        </form>
+        
+        
+        
+  </div>
+</div>

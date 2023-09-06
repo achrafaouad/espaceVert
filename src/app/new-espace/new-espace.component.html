@@ -1,0 +1,43 @@
+<div class="card main">
+    <button class="btn btn-dark" title="AJOUTER UN ESPACE VERT" routerLink="/addEspace" ><i class="bi bi-node-plus-fill"></i></button>
+
+    <div class="d-flex  testimonials justify-content-end">
+        <div class="col-sm-3">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Chercher un des espaces" aria-label="Username" [(ngModel)]="searchText" aria-describedby="basic-addon1">
+                <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+        
+              </div> 
+        </div>
+        
+    </div>
+
+       
+      <div class="card-body">
+        <div class="container testimonials">
+            <div class="row">
+
+                <div class="col-md-4 testimonial" *ngFor="let ele of espaces | search: searchText" (click)="navigateToTarget(ele)">
+                    <div class="row">
+                        <div class="avatar col-md-5">
+                            <a href="#">
+                                <img class="img-circle" src="{{image}}/assets/espace_paysage_01820600_162810708.jpeg" alt="Taylor Otwell">
+                            </a>
+                        </div>
+                
+                        <div class="testimonial-main col-md-7">
+                            <h4 class="media-heading">{{ele.designation}}</h4>
+                            <p class="testimony-body">{{ele.surface }} m²   </p>
+                        </div>
+                    </div>
+                </div>
+              
+                
+            </div>
+        </div>                
+    </div>
+</div>
+
+
+
+

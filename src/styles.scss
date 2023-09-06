@@ -1,0 +1,230 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card {
+
+    display: flex;
+    flex-direction: column;
+    border-radius: .5rem;
+    background-color: #fff;
+    margin: 1.25rem 0 1.25rem 0;
+    box-shadow: 0 .25rem .5rem black;
+
+    .card-head {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #edf1f7;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .card-body {
+        padding: 1rem 1.5rem;
+    }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  font-size: 9px;
+
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 1px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align: left;
+  background-color: #394867;
+  color: white;
+}
+
+
+
+h1 {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  color: #080808;
+  -webkit-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+h1 span {
+  display: block;
+  font-size: 0.5em;
+  line-height: 1.3;
+}
+h1 em {
+  font-style: normal;
+  font-weight: 600;
+}
+
+.seven h1 {
+  text-align: center;
+      font-size:30px; font-weight:300; color:#222; letter-spacing:1px;
+      text-transform: uppercase;
+  
+      display: grid;
+      grid-template-columns: 1fr max-content 1fr;
+      grid-template-rows: 27px 0;
+      grid-gap: 20px;
+      align-items: center;
+  }
+  
+  .seven h1:after,.seven h1:before {
+      content: " ";
+      display: block;
+      border-bottom: 1px solid #c50000;
+      border-top: 1px solid #c50000;
+      height: 5px;
+    background-color:#f8f8f8;
+  }
+
+
+  /* header.component.css */
+  .des{
+    background-color: rgba(0, 0, 0, 0.445);
+    border-radius: 10px;
+    
+    }
+
+  .wwq {
+    /* Add the URL of your background image */
+    background-image: url('../src/assets/espace_vert.jpg');
+    /* Adjust the background-size, background-repeat, and other properties as needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+.header-container {
+  background-color: #526D82; /* Blue background color */
+  padding: 14px;
+  text-align: center;
+}
+
+.header-content {
+  margin: auto;
+}
+
+.header-content h1 {
+  font-family: 'Arial', sans-serif;
+  font-size: 31px;
+  font-weight: bold;
+  color: #fff; /* White text color */
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow effect */
+}
+
+.header-content p {
+  font-size: 16px;
+  color: #fff; /* White text color */
+}
+
+/* Underline effect */
+.header-content h1:before, .header-content h1:after {
+  content: '';
+  display: block;
+  height: 4px;
+  background-color: #c50000; /* Red color */
+  margin: 0 auto;
+  width: 50px;
+}
+
+.header-content h1:before {
+  margin-bottom: 5px;
+}
+
+
+
+.custom-fieldset1 {
+  border: 2px solid #765827; /* Set border style and color */
+  padding: 10px; /* Add padding to create space between the border and content */
+  border-radius: 5px; /* Apply rounded corners to the fieldset */
+  display: inline-block; /* Display the fieldset as an inline block */
+  position: relative; /* Position the fieldset relatively */
+  width: 100%;
+  background-color:#f0f0f065;
+  ;
+}
+
+.custom-fieldset1 legend {
+  font-size: 16px; /* Customize the font size of the fieldset title */
+  font-weight: bold; /* Make the fieldset title bold */
+  padding: 0 5px; /* Add padding to create space around the fieldset title */
+  position: absolute; /* Position the legend absolutely */
+  top: -10px; /* Adjust the top position to align with the border */
+  left: 10px; /* Adjust the left position to align with the border */
+  width: fit-content;
+  background-color: #fff; /* Set background color to match the fieldset background */
+}
+
+
+
+  .ten p{
+    font-size:18px; font-weight:500; text-transform:uppercase;
+  }
+  .ten p:before {
+      background-color: #c50000;
+      border-radius: 0.25rem;
+      content: '';
+      display: block;
+      height: 0.25rem;
+      width: 42px;
+      margin-bottom: 1.25rem;
+  }
+  
+
+.custom-fieldset {
+  border: 1px solid #ccc; /* Set border style and color */
+  padding: 10px; /* Add padding to create space between the border and content */
+  border-radius: 5px; /* Apply rounded corners to the fieldset */
+  display: inline-block; /* Display the fieldset as an inline block */
+  position: relative; /* Position the fieldset relatively */
+  width: 100%;
+  background-color: #F0F0F0;
+  ;
+}
+
+.custom-fieldset legend {
+  font-size: 16px; /* Customize the font size of the fieldset title */
+  font-weight: bold; /* Make the fieldset title bold */
+  padding: 0 5px; /* Add padding to create space around the fieldset title */
+  position: absolute; /* Position the legend absolutely */
+  top: -10px; /* Adjust the top position to align with the border */
+  left: 10px; /* Adjust the left position to align with the border */
+  background-color: #fff; /* Set background color to match the fieldset background */
+}
+
+
+.modal-backdrop {
+  z-index: -1;
+}
